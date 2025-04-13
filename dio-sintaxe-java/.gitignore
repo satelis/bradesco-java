@@ -25,9 +25,6 @@
 ### Mac OS ###
 .DS_Store
 
-### Outros ###
 *.log
 *.tmp
-
-### Se usar bin/ como build ###
 /bin/

@@ -6,6 +6,7 @@ public class SobreMim {
         int idade = Integer.valueOf(args[2]);
         double altura = Double.valueOf(args[3]);
 
+        System.out.println("---FICHA PESSOAL---");
         System.out.println("Olá! Me chamo " + nome + " " + sobrenome);
         System.out.println("Tenho " + idade + " anos");
         System.out.println("E tenho " + altura + " cm de altura.");

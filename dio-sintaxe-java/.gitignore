@@ -28,3 +28,5 @@
 *.log
 *.tmp
 /bin/
+/sistema-smart-tv/out/
+/terminal-args/out/

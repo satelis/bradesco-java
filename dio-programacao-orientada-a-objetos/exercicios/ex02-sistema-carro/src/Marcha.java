@@ -9,11 +9,21 @@ public class Marcha {
     }
 
     public void aumentarMarcha() {
-        marcha++;
-
+        if (marcha < 6) {
+            System.out.println("Marcha atual: " + marcha);
+            marcha++;
+        }
+        else
+            System.out.printf("Marcha já está no limite!");
     }
 
     public void diminuirMarcha() {
+        if (marcha > 0 ) {
+            marcha--;
+            System.out.println("Marcha atual: " + marcha);
+        }
+        else
+            System.out.println("Marcha já está no limite!");
 
     }
     /*

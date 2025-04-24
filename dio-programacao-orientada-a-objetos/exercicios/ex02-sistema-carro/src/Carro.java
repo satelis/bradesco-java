@@ -41,6 +41,16 @@ public class Carro {
 
     public void acelerar() {
         //todo acelerar
+        if (marchaAtual.getMarcha() == 0) {
+            System.out.println("Carro em ponto morto, não é possível acelerar.");
+        }
+        else if (velocidade < 120) {
+            velocidade++;
+            System.out.println("Velocidade atual: " + velocidade + " km/h");
+        }
+        else {
+            System.out.println("Velocidade no limite!");
+        }
         //incrementar em 1km (max 120km)
     }
 

@@ -4,7 +4,12 @@ public class Main {
         eco.ligar();
         eco.desligar();
         eco.ligar();
+        eco.acelerar();
         eco.aumentarMarcha();
+        for (int i = 0; i <= 120; i++) {
+            eco.acelerar();
+        }
+
         eco.desligar();
     }
 }

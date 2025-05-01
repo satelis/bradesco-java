@@ -5,7 +5,7 @@ public class ListaTarefa {
 
     private List<Tarefa> tarefaList;
 
-    public ListaTarefa(List<Tarefa> tarefaList) {
+    public ListaTarefa() {
         this.tarefaList = new ArrayList<>();
     }
 
@@ -31,4 +31,21 @@ public class ListaTarefa {
         System.out.println(tarefaList);
     }
 
+    public static void main(String[] args) {
+        ListaTarefa listaTarefa = new ListaTarefa();
+
+        System.out.println("O número total de tarefas é: " + listaTarefa.obterNumeroTotalTarefas());
+
+        listaTarefa.adicionarTarefa("Tarefa n1");
+        listaTarefa.adicionarTarefa("Tarefa n1");
+        listaTarefa.adicionarTarefa("Tarefa n3");
+
+        System.out.println("O número total de tarefas é: " + listaTarefa.obterNumeroTotalTarefas());
+
+        listaTarefa.removerTarefa("Tarefa n1");
+
+        System.out.println("O número total de tarefas é: " + listaTarefa.obterNumeroTotalTarefas());
+
+        listaTarefa.obterDescricoesTarefas();
+    }
 }

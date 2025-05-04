@@ -19,7 +19,7 @@ public class ContaBancaria {
 
     //métodos consulta
     public void consultarSaldo() {
-        System.out.println("Saldo atual: " + saldo);;
+        System.out.println("Saldo atual: " + saldo);
     }
 
     public void consultarLimiteChequeEspecial() {

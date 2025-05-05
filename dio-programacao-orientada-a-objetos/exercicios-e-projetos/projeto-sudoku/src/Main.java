@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static util.BoardTemplate.TABULEIRO_TEMPLATE;
 
 public class Main {
 
@@ -126,16 +127,69 @@ public class Main {
     }
 
     private static void showCurrentGame() {
+        if (isNull(board)) {
+            System.out.println("O jogo ainda não foi iniciado!");
+            return;
+        }
+        var args = new Object[81];
+        var argPos = 0;
+
+        for (int i = 0; i < BOARD_LIMIT; i++) {
+            for (var col: board.getSpaces()) {
+                args[argPos ++] = " " + (isNull(col.get(i).getActual()) ? " " : col.get(i).getActual());
+            }
+        }
+        System.out.println("Seu jogo atualmente está: ");
+        System.out.printf((TABULEIRO_TEMPLATE) + "\n", args);
     }
 
     private static void showGameStatus() {
+        if (isNull(board)) {
+            System.out.println("O jogo ainda não foi iniciado!");
+            return;
+        }
+        System.out.println("O jogo atualmente está: " + board.getstatus().getLabel());
+        if(board.hasErrors()) {
+            System.out.println("O jogo contém erros!");
+        } else
+            System.out.println("O jogo não contém erros.");
     }
 
     private static void clearGame() {
+        if (isNull(board)) {
+            System.out.println("O jogo ainda não foi iniciado!");
+            return;
+        }
+
+        System.out.println("Tem certeza que deseja limpar todo seu jogo e perder seu progresso?");
+        String confirm = scanner.next();
+        while (!confirm.equalsIgnoreCase("sim") || !confirm.equalsIgnoreCase("não")) {
+            System.out.println("Escolha inválida! Digite 'sim' ou 'não'");
+            confirm = scanner.next();
+        }
+
+        if (confirm.equalsIgnoreCase("sim")) {
+            board.reset();
+        }
     }
 
     private static void finishGame() {
-        
+        if (isNull(board)) {
+            System.out.println("O jogo ainda não foi iniciado!");
+            return;
+        }
+
+        if (board.gameIsFinished()) {
+            System.out.println("Parabens! Você concluiu o jogo.");
+            showCurrentGame();
+            board = null;
+        }
+        else if (board.hasErrors()) {
+            System.out.println("Seu jogo possuí erros, verifique seu tabuleiro novamente.");
+        }
+        else {
+            System.out.println("Você ainda precisa preencher algum espaço.");
+        }
     }
 
     private static int runUntilGetValidNumber(final int min, final int max) {

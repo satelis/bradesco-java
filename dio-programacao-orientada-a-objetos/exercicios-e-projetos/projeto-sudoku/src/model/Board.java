@@ -41,7 +41,7 @@ public class Board {
         return true;
     }
 
-    public boolean erase(final int col, final int row, final int value) {
+    public boolean erase(final int col, final int row) {
         var space = spaces.get(col).get(row);
         if (space.isFixed()){
             return false;
